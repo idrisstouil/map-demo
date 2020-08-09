@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>Polygon Arrays</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFzMUj680NNVlp5WfkZWjS0s_URnpfz_4&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+    <style type="text/css">
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script>
+      "use strict";
+
+      // This example creates a simple polygon representing the Bermuda Triangle.
+      // When the user clicks on the polygon an info window opens, showing
+      // information about the polygon's coordinates.
+      let map;
+      let infoWindow;
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 15,
+          center: {
+            lat: 34.648663,
+            lng: -1.877992
+          },
+          mapTypeId: 'satellite'
+        }); // Define the LatLng coordinates for the polygon.
+         const area2 = [
+          {
+            lat: 34.650387, 
+            lng: -1.877073
+          },
+          {
+            lat: 34.650263, 
+            lng: -1.877358
+          },
+          {
+            lat: 34.650960, 
+            lng: -1.877819
+          },
+          {
+            lat: 34.651075, 
+            lng: -1.877535
+          }
+,
+           {
+            lat: 34.650387, 
+            lng: -1.877073
+          },
+
+
+        ];
+
+        const area2map = new google.maps.Polygon({
+          paths: area2,
+          strokeColor: "#FF0000",
+          strokeOpacity: 0.8,
+          strokeWeight: 3,
+          fillColor: "#FF0000",
+          fillOpacity: 0.35
+        });
+
+         area2map.setMap(map); // Add a listener for the click event
+         area2map.addListener("click", showArrays2);
+
+     function showArrays2(event) {
+        // Since this polygon has only one path, we can call getPath() to return the
+        // MVCArray of LatLngs.
+        const polygon = this;
+        const vertices = polygon.getPath();
+        let contentString =
+
+          
+          '<div class="card" style="width: 18rem;">'+
+  
+ ' <ul class="list-group list-group-flush">'+
+    '<li class="list-group-item"><b>Nom </b>: Ahmed kamal </li>'+
+    '<li class="list-group-item"><b>Adress de beneficiere</b>: 2 hey ouhda ,Berkane</li>'+
+    '<li class="list-group-item"><b>Cin </b>:FF0000 </li>'+
+    '<li class="list-group-item"><b>Num de d ecatement</b>:bb1658</li>'+
+    '<li class="list-group-item"><b>Adress de terrain </b>:10 ,sidi maafa ,oujda</li>'+
+  '</ul>'+
+'</div>'
+
+; // Iterate over the vertices.
+
+        // for (let i = 0; i < vertices.getLength(); i++) {
+        //   const xy = vertices.getAt(i);
+        //   contentString +=
+        //     "<br>" + "Coordinate " + i + ":<br>" + xy.lat() + "," + xy.lng();
+        // } // Replace the info window's content and position.
+
+        infoWindow.setContent(contentString);
+        infoWindow.setPosition(event.latLng);
+        infoWindow.open(map);
+      }
+
+
+
+
+
+ const area4 = [
+          {
+            lat: 34.650413, 
+            lng: -1.877015
+          },
+          {
+            lat: 34.650678, 
+            lng: -1.876719
+          },
+          {
+            lat: 34.651273, 
+            lng: -1.877116
+          },
+          {
+            lat: 34.651115, 
+            lng: -1.877471
+          }
+,
+           {
+            lat: 34.650413, 
+            lng: -1.877015
+          },
+
+
+        ];
+
+        const area4map = new google.maps.Polygon({
+          paths: area4,
+          strokeColor: "#00879F",
+          strokeOpacity: 0.8,
+          strokeWeight: 3,
+          fillColor: "#00879F",
+          fillOpacity: 0.35
+        });
+
+         area4map.setMap(map); // Add a listener for the click event
+         area4map.addListener("click", showArrays3);
+
+              function showArrays3(event) {
+        // Since this polygon has only one path, we can call getPath() to return the
+        // MVCArray of LatLngs.
+        const polygon = this;
+        const vertices = polygon.getPath();
+        let contentString =
+
+          
+          '<div class="card" style="width: 18rem;">'+
+  
+ ' <ul class="list-group list-group-flush">'+
+    '<li class="list-group-item"><b>Nom </b>: said raho </li>'+
+    '<li class="list-group-item"><b>Adress de beneficiere</b>: 21 hey salam,Oujda</li>'+
+    '<li class="list-group-item"><b>Cin </b>:FF0000 </li>'+
+    '<li class="list-group-item"><b>Num de d ecatement</b>:cc1658</li>'+
+    '<li class="list-group-item"><b>Adress de terrain </b>:10 ,sidi maafa ,oujda</li>'+
+  '</ul>'+
+'</div>'
+
+; // Iterate over the vertices.
+
+        // for (let i = 0; i < vertices.getLength(); i++) {
+        //   const xy = vertices.getAt(i);
+        //   contentString +=
+        //     "<br>" + "Coordinate " + i + ":<br>" + xy.lat() + "," + xy.lng();
+        // } // Replace the info window's content and position.
+
+        infoWindow.setContent(contentString);
+        infoWindow.setPosition(event.latLng);
+        infoWindow.open(map);
+      }
+
+
+
+
+
+
+
+
+ const area3 = [
+          {
+            lat: 34.651198, 
+            lng: -1.877513
+          },
+          {
+            lat: 34.651353, 
+            lng: -1.877165
+          },
+          {
+            lat: 34.652094, 
+            lng: -1.877669
+          },
+          {
+            lat: 34.651953, 
+            lng: -1.878023
+          }
+,
+           {
+            lat: 34.651198, 
+            lng: -1.877513
+          },
+
+
+        ];
+
+        const area3map = new google.maps.Polygon({
+          paths: area3,
+          strokeColor: "#FF0000",
+          strokeOpacity: 0.8,
+          strokeWeight: 3,
+          fillColor: "#FF0000",
+          fillOpacity: 0.35
+        });
+
+         area3map.setMap(map); // Add a listener for the click event
+         area3map.addListener("click", showArrays);
+
+
+
+
+
+
+        const triangleCoords = [
+          {
+            lat: 34.647811,
+            lng: -1.877879
+          },
+          {
+            lat: 34.648005,
+            lng: -1.877895
+          },
+          {
+            lat: 34.648385,
+            lng: -1.877761
+          },
+          {
+            lat: 34.648314,
+            lng: -1.881108
+          }
+,
+          {
+            lat: 34.647114,
+            lng: -1.880663
+          }
+,
+          {
+            lat: 34.647110,
+            lng: -1.880642
+          },
+
+
+        ]; // Construct the polygon.
+
+        const bermudaTriangle = new google.maps.Polygon({
+          paths: triangleCoords,
+          strokeColor: "#FF0000",
+          strokeOpacity: 0.8,
+          strokeWeight: 3,
+          fillColor: "#FF0000",
+          fillOpacity: 0.35
+        });
+        bermudaTriangle.setMap(map); // Add a listener for the click event.
+
+        bermudaTriangle.addListener("click", showArrays);
+        infoWindow = new google.maps.InfoWindow();
+      }
+
+
+
+      function showArrays(event) {
+        // Since this polygon has only one path, we can call getPath() to return the
+        // MVCArray of LatLngs.
+        const polygon = this;
+        const vertices = polygon.getPath();
+        let contentString =
+
+          
+          '<div class="card" style="width: 18rem;">'+
+  
+ ' <ul class="list-group list-group-flush">'+
+    '<li class="list-group-item"><b>Nom </b>: jamal flan </li>'+
+    '<li class="list-group-item"><b>Adress de beneficiere</b>: 21 hey salam,Oujda</li>'+
+    '<li class="list-group-item"><b>Cin </b>:FF0000 </li>'+
+    '<li class="list-group-item"><b>Num de d ecatement</b>:aa1658</li>'+
+    '<li class="list-group-item"><b>Adress de terrain </b>:10 ,sidi maafa ,oujda</li>'+
+  '</ul>'+
+'</div>'
+
+; // Iterate over the vertices.
+
+        // for (let i = 0; i < vertices.getLength(); i++) {
+        //   const xy = vertices.getAt(i);
+        //   contentString +=
+        //     "<br>" + "Coordinate " + i + ":<br>" + xy.lat() + "," + xy.lng();
+        // } // Replace the info window's content and position.
+
+        infoWindow.setContent(contentString);
+        infoWindow.setPosition(event.latLng);
+        infoWindow.open(map);
+      }
+    </script>
+  </head>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <body>
+
+
+    <div id="map"></div>
+    
+  </body>
+</html>
